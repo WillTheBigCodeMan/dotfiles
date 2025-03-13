@@ -1,0 +1,16 @@
+[Libinput][12972][6][FRMW0001:00 32AC:0006]
+NaturalScroll=true
+ScrollFactor=20
+
+[Libinput][2][6][ImExPS/2 Generic Explorer Mouse]
+NaturalScroll=true
+PointerAcceleration=1.000
+
+[Libinput][2362][628][PIXA3854:00 093A:0274 Mouse]
+NaturalScroll=true
+PointerAcceleration=1.000
+
+[Libinput][2362][628][PIXA3854:00 093A:0274 Touchpad]
+NaturalScroll=true
+PointerAcceleration=-0.200
+PointerAccelerationProfile=1
