@@ -16,6 +16,7 @@ return {
             ruby = { "rubocop" },
             eruby = { "erb_format" },
             json = { "prettier" },
+            html = { "prettier" },
         },
     },
 }

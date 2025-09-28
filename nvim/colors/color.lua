@@ -219,4 +219,4 @@ local function watch()
     uv.fs_event_start(handle, colorFile, flags, event_cb)
 end
 
-watch()
+-- watch()
