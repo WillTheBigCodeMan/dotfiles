@@ -8,6 +8,9 @@ return {
             ["clang-format"] = {
                 args = "-style='{IndentWidth: 4,}'",
             },
+            ["prettier"] = {
+                prepend_args = { "--tab-width", "4" },
+            },
         },
         formatters_by_ft = {
             awk = { "awk" },

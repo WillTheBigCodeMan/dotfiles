@@ -17,16 +17,20 @@ function WrapWithTag()
         endCol = math.max(cursor[3], vend[3])
     end
 
+    local lastLineText = vim.api.nvim_buf_get_lines(0, lastLine, lastLine + 1, false)[1]
+
     if vim.fn.mode(1) == "V" then
         startCol = 1
-        endCol = #vim.api.nvim_buf_get_lines(0, lastLine, lastLine + 1, false)[1]
+        endCol = #lastLineText
     end
 
     -- or use api.nvim_buf_get_lines
     local lines = vim.api.nvim_buf_get_text(0, firstLine, startCol - 1, lastLine, endCol, {})
 
+    endCol = math.min(endCol, #lastLineText)
+
     lines[1] = "<" .. tagName .. ">" .. lines[1]
     lines[#lines] = lines[#lines] .. "</" .. tagName .. ">"
 
-    vim.api.nvim_buf_set_text(0, firstLine, startCol - 1, lastLine, endCol - 1, lines)
+    vim.api.nvim_buf_set_text(0, firstLine, startCol - 1, lastLine, endCol, lines)
 end
