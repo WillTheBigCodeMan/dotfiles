@@ -20,6 +20,7 @@ return {
             eruby = { "erb_format" },
             json = { "prettier" },
             html = { "prettier" },
+            go = { "gofmt" },
         },
     },
 }
