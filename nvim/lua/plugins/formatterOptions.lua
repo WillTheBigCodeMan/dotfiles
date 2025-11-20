@@ -21,6 +21,7 @@ return {
             json = { "prettier" },
             html = { "prettier" },
             go = { "gofmt" },
+            javascript = { "prettier" },
         },
     },
 }
