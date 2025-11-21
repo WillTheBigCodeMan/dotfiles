@@ -1,5 +1,9 @@
 return {
 	"luukvbaal/statuscol.nvim",
+	dependencies = {
+		"mfussenegger/nvim-dap",
+		"lewis6991/gitsigns.nvim",
+	},
 	config = function()
 		return {
 			setopt = true,
@@ -9,12 +13,10 @@ return {
 			bt_ignore = nil, -- Lua table with 'buftype' values for which 'statuscolumn' will be unset
 
 			segments = {
-				{ text = { "%l" } },
 				{ text = { "%C" }, click = "v:lua.ScFa" },
 				{ text = { "%s" }, click = "v:lua.ScSa" },
 			},
 			clickmod = "c", -- modifier used for certain actions in the builtin clickhandlers:
-			-- "a" for Alt, "c" for Ctrl and "m" for Meta.
 			clickhandlers = { -- builtin click handlers, keys are pattern matched
 				Lnum = require("statuscol.builtin").lnum_click,
 				FoldClose = require("statuscol.builtin").foldclose_click,
