@@ -1,11 +1,23 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
+local telescope = require("telescope.builtin")
+local set = vim.keymap.set
 
-local map = vim.keymap.set
-
-map("n", "<leader>od", vim.diagnostic.open_float, { desc = "Open error description" })
-map("n", "<C-t>", "<leader>ws<cmd>term<cr>i", { desc = "Open terminal", remap = true })
-map("t", "<C-t>", "<C-u><C-k>exit<cr><leader>wd", { desc = "Close terminal", remap = true })
--- map("n", "<leader>r", "<cmd>colorscheme lushwal<cr>", { desc = "Reload colorscheme" })
-map("v", "<leader>wt", WrapWithTag, { desc = "Wrap selection with HTML tag" })
+set("n", "<leader>ff", function()
+	telescope.find_files({ no_ignore = true, hidden = true })
+end, { desc = "Telescope find files" })
+set("n", "<leader>fg", telescope.live_grep, { desc = "Telescope live grep" })
+set("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
+set("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
+set("n", "L", "<Cmd>BufferNext<CR>", { desc = "Move to next buffer" })
+set("n", "H", "<Cmd>BufferPrevious<CR>", { desc = "Move to previous buffer" })
+set("n", "<leader>bd", "<Cmd>BufferClose<CR>", { desc = "Close current buffer" })
+set("n", "<leader>od", vim.diagnostic.open_float, { desc = "Open error message" })
+set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
+set("n", "<leader>e", "<Cmd>lua Snacks.explorer()<CR>", { desc = "Open file explorer" })
+set("n", "<leader>wv", "<Cmd>vs<CR>", { desc = "Split window virtically" })
+set("n", "<leader>ws", "<Cmd>sp<CR>", { desc = "Split window horizontally" })
+set("n", "<C-h>", "<C-w>h", {})
+set("n", "<C-j>", "<C-w>j", {})
+set("n", "<C-k>", "<C-w>k", {})
+set("n", "<C-l>", "<C-w>l", {})
+set("n", "<leader>wd", "<C-w>q", {})
