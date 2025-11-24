@@ -275,6 +275,8 @@ load_plugins {
 web_client {
     font "monospace"
 }
+
+theme "nord"
  
 // Use a simplified UI without special fonts (arrow glyphs)
 // Options:

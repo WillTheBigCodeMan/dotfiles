@@ -9,7 +9,7 @@ opt.expandtab = true
 opt.cursorline = true
 opt.number = true
 opt.relativenumber = true
-vim.cmd([[colorscheme tokyonight]])
+vim.cmd([[colorscheme nord]])
 
 vim.diagnostic.config({
 	virtual_text = {
@@ -51,15 +51,13 @@ vim.api.nvim_create_autocmd("FocusGained", {
 	desc = "Read shared data on focus gained",
 	group = focus_lost_group,
 	callback = vim.schedule_wrap(function()
-		print("Welcome back")
 		vim.cmd.sleep("100m")
 		vim.cmd.rshada()
 	end),
 })
 
--- vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
---
--- vim.opt.foldlevel = 99
--- vim.opt.foldlevelstart = 99
--- vim.opt.foldenable = true -- Enable folding by default
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function()
+		vim.treesitter.start()
+	end,
+})

@@ -26,4 +26,7 @@ return {
 			}
 		end,
 	},
+	{
+		"shaunsingh/nord.nvim",
+	},
 }
