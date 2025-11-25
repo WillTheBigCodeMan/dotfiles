@@ -9,6 +9,7 @@ opt.expandtab = true
 opt.cursorline = true
 opt.number = true
 opt.relativenumber = true
+opt.viminfo = "'100,<0,s10,h"
 vim.cmd([[colorscheme nord]])
 
 vim.diagnostic.config({
