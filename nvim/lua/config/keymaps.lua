@@ -1,9 +1,7 @@
 local telescope = require("telescope.builtin")
 local set = vim.keymap.set
 
-set("n", "<leader>ff", function()
-	telescope.find_files({ no_ignore = true, hidden = true })
-end, { desc = "Telescope find files" })
+set("n", "<leader>ff", telescope.find_files, { desc = "Telescope find files" })
 set("n", "<leader>fg", telescope.live_grep, { desc = "Telescope live grep" })
 set("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
 set("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
