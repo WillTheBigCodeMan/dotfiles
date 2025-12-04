@@ -9,8 +9,9 @@ opt.linebreak = true
 opt.cursorline = true
 opt.number = true
 opt.relativenumber = true
+-- opt.statuscolumn = " %l "
 opt.viminfo = "'100,<0,s10,h"
-vim.cmd([[colorscheme nord]])
+vim.cmd([[colorscheme catppuccin-macchiato]])
 
 vim.diagnostic.config({
 	virtual_text = {
@@ -35,26 +36,6 @@ vim.diagnostic.config({
 	underline = true,
 	update_in_insert = false,
 	severity_sort = true,
-})
-
-local focus_lost_group = vim.api.nvim_create_augroup("focus", { clear = true })
-
-vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Write shared data on buffer change",
-	group = focus_lost_group,
-	callback = function()
-		vim.highlight.on_yank()
-		vim.cmd.wshada()
-	end,
-})
-
-vim.api.nvim_create_autocmd("FocusGained", {
-	desc = "Read shared data on focus gained",
-	group = focus_lost_group,
-	callback = vim.schedule_wrap(function()
-		vim.cmd.sleep("100m")
-		vim.cmd.rshada()
-	end),
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {

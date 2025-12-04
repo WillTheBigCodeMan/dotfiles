@@ -1,12 +1,3 @@
--- vim.api.nvim_create_autocmd("BufWritePre", {
--- 	pattern = "*",
--- 	callback = function(args)
--- 		require("conform").format({ bufnr = args.buf })
--- 	end,
--- })
---
--- vim.api.nvim_get_current_buf()
-
 return {
 	"stevearc/conform.nvim",
 	opts = {
@@ -15,7 +6,12 @@ return {
 				prepend_args = { "-ln", "bash" },
 			},
 			prettier = {
-				prepend_args = { "--tab-width", "4" },
+				append_args = function(self, ctx)
+					if vim.endswith(ctx.filename, ".svelte") then
+						return { "--tab-width", "4", "--plugin", "prettier-plugin-svelte" }
+					end
+					return { "--tab-width", "4" }
+				end,
 			},
 		},
 		formatters_by_ft = {
@@ -26,6 +22,7 @@ return {
 			html = { "prettier" },
 			go = { "gofmt" },
 			javascript = { "prettier" },
+			svelte = { "prettier", lsp_format = "fallback" },
 		},
 		format_on_save = {
 			-- These options will be passed to conform.format()
