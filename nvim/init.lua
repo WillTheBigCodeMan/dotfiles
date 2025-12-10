@@ -40,6 +40,6 @@ vim.diagnostic.config({
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function()
-		vim.treesitter.start()
+		pcall(vim.treesitter.start)
 	end,
 })
