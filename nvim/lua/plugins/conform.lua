@@ -1,6 +1,7 @@
 return {
 	"stevearc/conform.nvim",
 	opts = {
+		log_level = vim.log.levels.DEBUG,
 		formatters = {
 			shfmt = {
 				prepend_args = { "-ln", "bash" },
@@ -13,6 +14,10 @@ return {
 					return { "--tab-width", "4" }
 				end,
 			},
+			-- For some reason it knows to treat this as -style="{...}"
+			["clang-format"] = {
+				prepend_args = { "-style", "{IndentWidth: 4}" },
+			},
 		},
 		formatters_by_ft = {
 			lua = { "stylua" },
@@ -22,7 +27,8 @@ return {
 			html = { "prettier" },
 			go = { "gofmt" },
 			javascript = { "prettier" },
-			svelte = { "prettier", lsp_format = "fallback" },
+			svelte = { "prettier" },
+			c = { "clang-format" },
 		},
 		format_on_save = {
 			-- These options will be passed to conform.format()
