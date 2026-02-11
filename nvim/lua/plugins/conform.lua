@@ -18,6 +18,10 @@ return {
 			["clang-format"] = {
 				prepend_args = { "-style", "{IndentWidth: 4}" },
 			},
+
+			hindent = {
+				prepend_args = { "--indent-size", 4 },
+			},
 		},
 		formatters_by_ft = {
 			lua = { "stylua" },
@@ -29,6 +33,7 @@ return {
 			javascript = { "prettier" },
 			svelte = { "prettier" },
 			c = { "clang-format" },
+			haskell = { "hindent" },
 		},
 		format_on_save = {
 			-- These options will be passed to conform.format()
