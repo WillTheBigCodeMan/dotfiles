@@ -22,6 +22,14 @@ return {
 			hindent = {
 				prepend_args = { "--indent-size", 4 },
 			},
+			prettypst = {
+				prepend_args = {
+					"--style",
+					"otbs",
+					"--file-location",
+					"~/.config/nvim/lua/plugins/prettypst.toml",
+				},
+			},
 		},
 		formatters_by_ft = {
 			lua = { "stylua" },
@@ -33,7 +41,9 @@ return {
 			javascript = { "prettier" },
 			svelte = { "prettier" },
 			c = { "clang-format" },
+			["cpp"] = { "clang-format" },
 			haskell = { "hindent" },
+			typst = { "prettypst" },
 		},
 		format_on_save = {
 			-- These options will be passed to conform.format()
