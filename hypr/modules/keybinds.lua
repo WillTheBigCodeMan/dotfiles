@@ -16,13 +16,12 @@ hl.bind(
 )
 hl.bind(MainMod .. " + R", hl.dsp.exec_cmd("pkill wofi; wofi --show drun"))
 hl.bind(MainMod .. " + B", hl.dsp.exec_cmd("firefox"))
-hl.bind(MainMod .. " + B", hl.dsp.exec_cmd("firefox"))
 hl.bind(MainMod .. " + S", hl.dsp.exec_cmd('grim -f "$(slurp - d)"; pkill grim '))
 hl.bind(MainMod .. " + U", hl.dsp.exec_cmd("kitty unicp.sh"))
 hl.bind(MainMod .. " + E", hl.dsp.exec_cmd("~/Documents/HyprEmoji/target/release/hypremoji"))
 
 -- Control keybinds
-hl.bind(MainMod .. " + C", hl.dsp.window.kill())
+hl.bind(MainMod .. " + C", hl.dsp.window.close())
 hl.bind(MainMod .. " + M", hl.dsp.exit())
 hl.bind(MainMod .. " + V", hl.dsp.window.float())
 hl.bind(MainMod .. " + P", hl.dsp.window.pseudo())
