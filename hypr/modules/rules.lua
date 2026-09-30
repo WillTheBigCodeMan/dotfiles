@@ -30,3 +30,11 @@ hl.layer_rule({
 	},
 	blur = true,
 })
+
+hl.window_rule({
+	match = {
+		class = ".*kitty.*",
+	},
+	opacity = 0.9,
+	no_blur = false,
+})
