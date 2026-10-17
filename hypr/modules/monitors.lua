@@ -7,17 +7,16 @@ hl.monitor({
 	scale = 1.3333333,
 })
 
-hl.monitor({
-	output = "DP-1",
-	mode = "1920x1080@144",
-	position = "-2256x0",
-	scale = 1,
-})
+-- hl.monitor({ output = "DP-1",
+-- 	mode = "1920x1080@144",
+-- 	position = "-2256x0",
+-- 	scale = 1,
+-- })
 
 hl.monitor({
 	output = "",
 	mode = "prefered",
 	position = "auto",
-	scale = 1,
-	mirror = "eDP-1",
+	scale = "auto",
+	-- mirror = "eDP-1",
 })
