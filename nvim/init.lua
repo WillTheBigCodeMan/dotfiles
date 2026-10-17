@@ -1,6 +1,8 @@
 require("config.lazy")
 require("config.keymaps")
 
+Format = true
+
 local opt = vim.opt
 opt.tabstop = 4
 opt.shiftwidth = 4
@@ -41,5 +43,14 @@ vim.diagnostic.config({
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function()
 		pcall(vim.treesitter.start)
+	end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function(args)
+		if Format == true then
+			require("conform").format({ bufnr = args.buf, lsp_format = "fallback" })
+		end
 	end,
 })

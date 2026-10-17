@@ -11,7 +11,7 @@ return {
 					if vim.endswith(ctx.filename, ".svelte") then
 						return { "--tab-width", "4", "--plugin", "prettier-plugin-svelte" }
 					end
-					return { "--tab-width", "4" }
+					return { "--tab-width", "2" }
 				end,
 			},
 			-- For some reason it knows to treat this as -style="{...}"
@@ -44,11 +44,6 @@ return {
 			["cpp"] = { "clang-format" },
 			haskell = { "hindent" },
 			typst = { "prettypst" },
-		},
-		format_on_save = {
-			-- These options will be passed to conform.format()
-			timeout_ms = 500,
-			lsp_format = "fallback",
 		},
 	},
 }

@@ -22,3 +22,9 @@ set("n", "<leader>wd", "<C-w>q", {})
 set("n", "<ESC>", "<Cmd>noh<CR>", {})
 set({ "n", "v" }, "<leader>sy", '"+y', {})
 set({ "n", "v" }, "<leader>sp", '"+p', {})
+set(
+	"n",
+	"<leader>n",
+	"<Cmd>lua Format=false<CR><Cmd>w<Cr><Cmd>lua Format=true<CR>",
+	{ desc = "Write without formatting" }
+)
